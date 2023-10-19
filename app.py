@@ -59,15 +59,16 @@ pretrained_model = load_attack_model()
 image_file = st.file_uploader('Upload image file')
 col1, col2 = st.columns(2)
 if image_file:
-    save_uploadedfile(image_file)
-    col1.image(image_file.name, caption='Original Image')
+    #save_uploadedfile(image_file)
+    bytes_data = image_file.getvalue()
+    col1.image(bytes_data, caption='Original Image')
 
     with st.spinner('Working on it...'):
         # ImageNet labels
         decode_predictions = tf.keras.applications.mobilenet_v2.decode_predictions
 
-        image_raw = tf.io.read_file(image_file.name)
-        image = tf.image.decode_image(image_raw)
+        #image_raw = tf.io.read_file(image_file.name)
+        image = tf.image.decode_image(bytes_data)
 
         image_original = preprocess_org(image)
         image = preprocess(image)
@@ -114,7 +115,7 @@ if image_file:
         col2.write(image_class)
         col2.write(class_confidence*100)
 
-        os.remove(image_file.name)
+        #os.remove(image_file.name)
         os.remove(f'processed_{image_file.name}.png')
     st.success('Done!') 
 
