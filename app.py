@@ -52,7 +52,7 @@ def load_attack_model(suppress_st_warning=True):
     return pretrained_model
 ################################################################################
 # Add a title 
-st.markdown("<h1 style='text-align: center; color: red;'>Adversial Noise Attacks</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: red;'>🎆 Adversial Noise Attacks 🎆</h1>", unsafe_allow_html=True)
 
 pretrained_model = load_attack_model()
 
@@ -113,6 +113,9 @@ if image_file:
         col2.image(f'processed_{image_file.name}.png',caption='Processed Image')
         col2.write(image_class)
         col2.write(class_confidence*100)
+
+        os.remove(image_file.name)
+        os.remove(f'processed_{image_file.name}.png')
     st.success('Done!') 
 
 #########################################################
