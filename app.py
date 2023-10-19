@@ -52,7 +52,7 @@ def load_attack_model(suppress_st_warning=True):
     return pretrained_model
 ################################################################################
 # Add a title 
-st.markdown("<h1 style='text-align: center; color: green;'>🎆 Adversial Noise Attacks 🎆</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: red;'>🎆 Adversial Noise Attacks 🎆</h1>", unsafe_allow_html=True)
 
 pretrained_model = load_attack_model()
 
@@ -116,7 +116,7 @@ if image_file:
     st.success('Done!') 
 
 #########################################################
-st.markdown("<h1 style='font-size:20px; text-align: center; color: red; font-family:SansSerif;'>Made with 💖 By Ahmed Hossam</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='font-size:20px; text-align: center; color: green; font-family:SansSerif;'>Made with 💖 By Ahmed Hossam</h1>", unsafe_allow_html=True)
 st.markdown("[My Github](https://github.com/Ahmed-Hossam-Aldeen)")
 
 
