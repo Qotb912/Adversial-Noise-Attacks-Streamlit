@@ -52,7 +52,7 @@ def load_attack_model(suppress_st_warning=True):
     return pretrained_model
 ################################################################################
 # Add a title 
-st.markdown("<h1 style='text-align: center; color: red;'>🎆 Adversial Noise Attacks 🎆</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: red;'>Adversial Noise Attacks</h1>", unsafe_allow_html=True)
 
 pretrained_model = load_attack_model()
 
