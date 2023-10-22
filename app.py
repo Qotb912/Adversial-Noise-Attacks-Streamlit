@@ -97,7 +97,7 @@ if image_file:
         epsilons = [0.07]
         eps = 0.07
         #descriptions = [('Epsilon = {:0.3f}'.format(eps) if eps else 'Input')
-                        for eps in epsilons]
+        #                for eps in epsilons]
 
         #for i, eps in enumerate(epsilons):
         #    adv_x = image + eps*perturbations
