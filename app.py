@@ -44,7 +44,7 @@ def save_uploadedfile(uploadedfile):
          f.write(uploadedfile.getbuffer())
      return st.success(f"{uploadedfile.name} File Uploaded Successfully!")
 
-@st.experimental_singleton
+@st.cache
 def load_attack_model(suppress_st_warning=True):
     pretrained_model = tf.keras.applications.MobileNetV2(include_top=True, weights='imagenet')
     #pretrained_model = tf.keras.models.load_model('mobilenet_v2.h5')
