@@ -95,13 +95,14 @@ if image_file:
 
 
         epsilons = [0.07]
-        eps = 0.07
+        
         #descriptions = [('Epsilon = {:0.3f}'.format(eps) if eps else 'Input')
         #                for eps in epsilons]
 
-        #for i, eps in enumerate(epsilons):
-        #    adv_x = image + eps*perturbations
-        #    adv_x = tf.clip_by_value(adv_x, -1, 1)
+        #
+      for i, eps in enumerate(epsilons):
+        adv_x = image + eps*perturbations
+        adv_x = tf.clip_by_value(adv_x, -1, 1)
         #    #display_images(adv_x, descriptions[i])
             
         im = image_original + tf.image.resize((eps*perturbations), (image_original.shape[1], image_original.shape[2]))
