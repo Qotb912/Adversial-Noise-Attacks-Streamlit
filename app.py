@@ -75,7 +75,7 @@ if image_file:
         image_probs = pretrained_model.predict(image)
 
         _, image_class, class_confidence = get_imagenet_label(image_probs)
-        print(image_class,class_confidence*100)
+        #print(image_class,class_confidence*100)
         col1.write(image_class)
         col1.write(class_confidence*100)
         #plt.figure()
@@ -95,19 +95,20 @@ if image_file:
 
 
         epsilons = [0.07]
-        descriptions = [('Epsilon = {:0.3f}'.format(eps) if eps else 'Input')
+        eps = 0.07
+        #descriptions = [('Epsilon = {:0.3f}'.format(eps) if eps else 'Input')
                         for eps in epsilons]
 
-        for i, eps in enumerate(epsilons):
-            adv_x = image + eps*perturbations
-            adv_x = tf.clip_by_value(adv_x, -1, 1)
-            #display_images(adv_x, descriptions[i])
+        #for i, eps in enumerate(epsilons):
+        #    adv_x = image + eps*perturbations
+        #    adv_x = tf.clip_by_value(adv_x, -1, 1)
+        #    #display_images(adv_x, descriptions[i])
             
         im = image_original + tf.image.resize((eps*perturbations), (image_original.shape[1], image_original.shape[2]))
 
         image_probs = pretrained_model.predict(im)
         _, image_class, class_confidence = get_imagenet_label(image_probs)
-        print(image_class,class_confidence*100)
+        #print(image_class,class_confidence*100)
         
 
         tf.keras.preprocessing.image.save_img(f'processed_{image_file.name}.png',im[0]*0.5+0.5)    
