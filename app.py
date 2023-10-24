@@ -106,14 +106,16 @@ if image_file:
         #    #display_images(adv_x, descriptions[i])
             
         im = image_original + tf.image.resize((eps*perturbations), (image_original.shape[1], image_original.shape[2]))
-
+        processed_image = tf.keras.utils.array_to_img(im[0] * 0.5 + 0.5)
+        col2.image(processed_image, caption='Processed Image')
+      
         image_probs = pretrained_model.predict(im)
         _, image_class, class_confidence = get_imagenet_label(image_probs)
         #print(image_class,class_confidence*100)
         
 
-        tf.keras.preprocessing.image.save_img(f'processed_{image_file.name}.png',im[0]*0.5+0.5)    
-        col2.image(f'processed_{image_file.name}.png',caption='Processed Image')
+        #tf.keras.preprocessing.image.save_img(f'processed_{image_file.name}.png',im[0]*0.5+0.5)    
+        #col2.image(f'processed_{image_file.name}.png',caption='Processed Image')
         col2.write(image_class)
         col2.write(class_confidence*100)
 
