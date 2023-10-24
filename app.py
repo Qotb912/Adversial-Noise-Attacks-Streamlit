@@ -120,7 +120,7 @@ if image_file:
         col2.write(class_confidence*100)
 
         #os.remove(image_file.name)
-        os.remove(f'processed_{image_file.name}.png')
+        #os.remove(f'processed_{image_file.name}.png')
     st.success('Done!') 
 
 #########################################################
